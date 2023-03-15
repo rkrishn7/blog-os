@@ -7,14 +7,14 @@ mod vga_buffer;
 
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
+    println!("{}", _info);
     loop {}
 }
 
-static HELLO_WORLD: &[u8] = b"Hello World!";
-
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    vga_buffer::print_something();
+    println!("Hello again");
+    println!(", some numbers: {} {}", 42, 1.337);
 
     loop {}
 }
